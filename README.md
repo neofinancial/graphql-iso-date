@@ -1,3 +1,7 @@
+This is a fork of https://github.com/excitement-engineer/graphql-iso-date
+
+The original package [does not work](https://github.com/excitement-engineer/graphql-iso-date/issues/106) with schema delegation. This fork fixes that by ignoring the time component when parsing a new GraphQLDate.
+
 # GraphQL ISO Date
 
 [![npm version](https://badge.fury.io/js/graphql-iso-date.svg)](http://badge.fury.io/js/graphql-iso-date)
