@@ -10,7 +10,7 @@
 
 import { GraphQLScalarType, Kind } from 'graphql'
 import type {GraphQLScalarTypeConfig} from "graphql";// eslint-disable-line
-import { validateDate, validateJSDate, serializeDate, parseDate } from '../utils'
+import { validateDate, validateJSDate, parseDate } from '../utils'
 
 /**
  * An RFC 3339 compliant date scalar.
@@ -32,7 +32,7 @@ const config: GraphQLScalarTypeConfig<Date, string> = {
   serialize (value) {
     if (value instanceof Date) {
       if (validateJSDate(value)) {
-        return serializeDate(value)
+        return value.toString().slice(0, 10);
       }
       throw new TypeError('Date cannot represent an invalid Date instance')
     } else if (typeof value === 'string' || value instanceof String) {
